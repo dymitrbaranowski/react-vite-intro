@@ -1,4 +1,5 @@
 .button {
+  --opacity: 1;
   padding: 0.8rem 2rem;
   border: none;
   border-radius: 5px;
@@ -11,37 +12,17 @@
   font-weight: 500;
   font-family: inherit;
   background-color: #cad7eaff;
-  transition: border-color 0.25s;
-}
+  transition: border-color 0.25s opacity 0.3s;
+  opacity: var(--opacity);
 
-.button:hover {
-  opacity: 0.8;
-  border-color: #646cff;
+  &:hover {
+    --opacity: 0.7;
+    border-color: #646cff;
+  }
 }
 
 .button.active {
+  --opacity: 0.9;
   background: #3e6ae1;
   color: #fff;
 }
-/* button:focus,
-button:focus-visible {
-  outline: 4px auto blue;
-} */
-/* button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
-} */

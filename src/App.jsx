@@ -1,54 +1,30 @@
 import { Header } from "./components/Header";
-import { ways, differences } from "./data";
-import { WayToTeach } from "./components/WayToTeach";
-import Button from "./components/Button/Button";
+import TeachingSection from "./components/TeachingSection";
+import DefferencesSection from "./components/DefferencesSection";
+import IntroSection from "./components/IntroSection";
+import TabsSection from "./components/TabsSection";
+import FeedbackSection from "./components/FeedbackSection";
 import { useState } from "react";
 
 export function App() {
-  const [contentType, setContentType] = useState(null);
-
-  function handleClick(type) {
-    setContentType(type);
-  }
-
+  const [tab, settab] = useState("feedback");
   return (
-    <div>
+    <>
       <Header />
       <main>
-        <section>
-          <h3>Наш подход к обучению</h3>
+        <IntroSection />
 
-          <ul>
-            {ways.map((way) => (
-              <WayToTeach key={way.title} {...way} />
-            ))}
-          </ul>
-        </section>
-        <section>
-          <h3>Чем мы отличаемся от других</h3>
-          <Button
-            isActive={contentType === "way"}
-            onClick={() => handleClick("way")}
-          >
-            Подход
-          </Button>
-          <Button
-            isActive={contentType === "easy"}
-            onClick={() => handleClick("easy")}
-          >
-            Доступность
-          </Button>
-          <Button
-            isActive={contentType === "program"}
-            onClick={() => handleClick("program")}
-          >
-            Концентрация
-          </Button>
+        <TabsSection active={tab} onChange={(current) => settab(current)} />
 
-          {!contentType && <p>Нажми на Кнопку!</p>}
-          {contentType && <p>{differences[contentType]}</p>}
-        </section>
+        {tab === "main" && (
+          <>
+            <TeachingSection />
+            <DefferencesSection />
+          </>
+        )}
+
+        {tab === "feedback" && <FeedbackSection />}
       </main>
-    </div>
+    </>
   );
 }

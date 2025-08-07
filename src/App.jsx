@@ -1,4 +1,4 @@
-import { Header } from "./components/Header";
+import { Header } from "./components/Header/Header";
 import TeachingSection from "./components/TeachingSection";
 import DefferencesSection from "./components/DefferencesSection";
 import IntroSection from "./components/IntroSection";

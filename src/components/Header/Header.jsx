@@ -19,7 +19,7 @@ export function Header() {
 
   return (
     <HeaderContainer>
-      <img src={logo} alt="Result" width="25px" />
+      <img src={logo} alt={"Result"} width={"25px"} />
       {/* <h3>Result University</h3> */}
 
       <span>Время сейчас: {now.toLocaleTimeString()}</span>
